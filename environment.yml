@@ -1,0 +1,27 @@
+# Conda equivalent of requirements.txt, provided for convenience.
+#
+# NOTE: this is NOT the tested setup path. Development and all reported results
+# used system CPython 3.12 with `pip install -r requirements.txt` — see
+# docs/decisions.md D-004. This file is offered untested for conda users.
+#
+#   conda env create -f environment.yml
+#   conda activate paas4bat-pinn
+name: paas4bat-pinn
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pytorch=2.7.1          # CPU build is intentional; see decisions.md D-007
+  - cpuonly
+  - numpy=1.26.4
+  - pandas=2.3.0
+  - scipy=1.15.3           # scipy.io.loadmat parses the NASA .mat files
+  - scikit-learn=1.7.0
+  - matplotlib=3.10.1
+  - statsmodels=0.14.6     # ARIMA baseline
+  - pyarrow=24.0.0
+  - tqdm=4.67.3
+  - jupyterlab=4.4.9
+  - ipykernel=7.0.1
+# deepxde removed: the project uses pure PyTorch. See decisions.md D-003.
